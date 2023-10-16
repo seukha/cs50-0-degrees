@@ -106,6 +106,17 @@ def shortest_path(source, target):
             raise Exception("no solution")
         node = frontier.remove()
         num_explorer += 1
+
+        if node.state == target:
+            actions_movie = []
+            cells_person = []
+            while node.parent is not None:
+                actions_movie.append(node.action)
+                cells_person.append(node.state)
+                node = node.parent
+            actions_movie.reverse()
+            cells_person.reverse()
+            return actions_movie                    
         
         explored.add(node.state)
 
