@@ -93,6 +93,7 @@ def shortest_path(source, target):
     """
 
     # TODO
+    start = Node(state=source, parent=None, action=None) 
     raise NotImplementedError
 
 
