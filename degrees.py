@@ -106,6 +106,7 @@ def shortest_path(source, target):
             raise Exception("no solution")
         node = frontier.remove()
         num_explorer += 1
+        explored.add(node.state)
         
     raise NotImplementedError
 
