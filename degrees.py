@@ -93,7 +93,7 @@ def shortest_path(source, target):
     """
 
     # TODO
-    num_explorer = 0
+    num_explored = 0
     
     start = Node(state=source, parent=None, action=None)
     frontier = QueueFrontier()
@@ -104,20 +104,17 @@ def shortest_path(source, target):
     while True:
         if frontier.empty():
             raise Exception("no solution")
+        
         node = frontier.remove()
-        num_explorer += 1
+        num_explored += 1
 
         if node.state == target:
-            actions_movie = []
-            cells_person = []
+            result = []
             while node.parent is not None:
-                actions_movie.append(node.action)
-                cells_person.append(node.state)
+                result.append((node.action, node.state))
                 node = node.parent
-            actions_movie.reverse()
-            cells_person.reverse()
-            solution = (actions_movie, cells_person)
-            return solution
+            result.reverse()
+            return result
         
         explored.add(node.state)
 
